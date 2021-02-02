@@ -185,14 +185,6 @@ class DistrictsDiv {
     document.getElementById("map_base").appendChild(this.container);
   }
   showData() {
-    let databox = document.createElement("div");
-    databox.id = this.name + "-data";
-    databox.className = "databox";
-    this.container.appendChild(databox);
-    // databox.style.width =
-    databox.style.height = this.name + parseInt((this.avg / 10) * 200)  + "px";
-    console.log();
-
 
   }
 }
@@ -237,5 +229,19 @@ for (let i = 0; i < processedData.length; i++) {
 
 for (let i = 0; i < domElements.length; i++) {
   domElements[i].showBasic();
-  domElements[i].showData();
+  domElements[i].container.addEventListener("mouseover", function(){
+    if (this.children.length) {
+      return;
+    }
+    let databox = document.createElement("div");
+    databox.id = this.id + "-data";
+    databox.className = "databox";
+    databox.style.transition = "all 1.5s ease 1.5s";
+    databox.style.backgroundColor = "hsla(" + parseInt(domElements[i].avg * 15 - 20) + ", 60%, 50%," + (1 - domElements[i].avg/10) + ")";
+    databox.style.height = parseInt(domElements[i].avg * 10) + "%";
+    setTimeout(() => {
+      this.appendChild(databox);
+    }, 1500);
+  });
+
 }

@@ -23,12 +23,11 @@ div.district_box {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 200;
   font-size: 16px;
-  padding: 2px;
+  padding-top: 2px;
   padding-bottom: 0;
   transition: all 1.5s ease;
   box-shadow: 5px 5px 10px grey;
 }
-
 
 div.district_box:hover {
   width: 200px;
@@ -36,6 +35,13 @@ div.district_box:hover {
   font-size: 20px;
   z-index: 999;
   cursor: pointer;
+}
+
+div.databox {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  /* background-color: green; */
 }
 
 #pudongNewArea{
@@ -115,14 +121,12 @@ div.river_segment{
   left:40%;
   bottom: 180px;
 }
-
 .river_segment#s3{
   width: 20px;
   height: 180px;
   left: calc(40% + 130px);
   bottom: 180px;
 }
-
 .river_segment#suzhou_river{
   width: calc(40% + 150px);
   height: 8px;
@@ -131,14 +135,12 @@ div.river_segment{
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
-
 .river_segment#s4 {
   width: 240px;
   height: 20px;
   left: calc(40% + 130px);
   bottom: 340px;
 }
-
 .river_segment#s5{
   width: 20px;
   height: calc(100% - 340px);
