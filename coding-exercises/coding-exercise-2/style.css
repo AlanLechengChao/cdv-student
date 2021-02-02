@@ -1,0 +1,149 @@
+#map_base {
+  position: relative;
+  margin: auto;
+  margin-bottom: 2%;
+  width: 80%;
+  height: 600px;
+  max-height: 60%;
+  border: 10px;
+  border-collapse: collapse;
+  border-style: inset;
+  box-shadow: 10px 10px 30px grey;
+  background-color: #fbfbf8;
+}
+
+div.district_box {
+  position: absolute;
+  border: 1px solid black;
+  width: 120px;
+  height: 20px;
+  text-align: center;
+  border-radius: 2px;
+  background-color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+  padding: 2px;
+  padding-bottom: 0;
+  transition: all 1.5s ease;
+  box-shadow: 5px 5px 10px grey;
+}
+
+
+div.district_box:hover {
+  width: 200px;
+  height: 200px;
+  font-size: 20px;
+  z-index: 999;
+  cursor: pointer;
+}
+
+#pudongNewArea{
+  left: calc(40% + 160px);
+  top: 50%;
+}
+
+#yangpuDistrict{
+  left: calc(40% + 220px);
+  top: 1%;
+}
+
+#hongkouDistrict{
+  left: calc(40% + 120px);
+  top: 20%;
+}
+
+#putuoDistrict{
+  left: calc(40% - 300px);
+  top: 5%;
+}
+
+#jinganDistrict{
+  left: calc(40% - 90px);
+  top: 30%;
+}
+
+#changningDistrict{
+  left: calc(40% - 350px);
+  top: 50%;
+}
+
+#xuhuiDistrict{
+  left: calc(40% - 150px);
+  top: 70%;
+}
+
+#huangpuDistrict{
+  left: calc(40% - 5px);
+  top: 55%;
+}
+
+#header{
+  margin: auto;
+  width: 80%;
+  padding: 30px;
+}
+
+h1{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h3{
+  text-align: right;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 200;
+}
+
+div.river_segment{
+  margin: 0;
+  position:absolute;
+  background-color: lightblue;
+  border-radius: 8px;
+}
+
+.river_segment#s1{
+  width: 20px;
+  height:200px;
+  bottom:0;
+  left:40%;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.river_segment#s2{
+  width: 150px;
+  height: 20px;
+  left:40%;
+  bottom: 180px;
+}
+
+.river_segment#s3{
+  width: 20px;
+  height: 180px;
+  left: calc(40% + 130px);
+  bottom: 180px;
+}
+
+.river_segment#suzhou_river{
+  width: calc(40% + 150px);
+  height: 8px;
+  left: 0;
+  bottom: 340px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.river_segment#s4 {
+  width: 240px;
+  height: 20px;
+  left: calc(40% + 130px);
+  bottom: 340px;
+}
+
+.river_segment#s5{
+  width: 20px;
+  height: calc(100% - 340px);
+  left: calc(40% + 130px + 220px);
+  bottom: 340px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
