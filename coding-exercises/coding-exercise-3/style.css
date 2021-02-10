@@ -1,0 +1,29 @@
+#viz-container > *{
+  margin: 10px;
+  box-shadow: 10px 10px 20px grey;
+  flex-wrap: wrap;
+}
+
+#legend {
+  padding: 20px;
+  text-align: center;
+  width: 20%;
+  height: 600px;
+  background-color: #fff;
+}
+
+h1, h2, h3 {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+#legend p{
+  /* font-size: 12px; */
+  text-align: left;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 200;
+}
+
+#viz-container {
+  display: flex;
+  flex-wrap: wrap;
+}

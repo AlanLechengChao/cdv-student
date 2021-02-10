@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.5.0/d3.min.js" integrity="sha512-0XfwGD1nxplHpehcSVI7lY+m/5L37PNHDt+DOc7aLFckwPXjnjeA1oeNbru7YeI4VLs9i+ADnnHEhP69C9CqTA==" crossorigin="anonymous"></script>
+    <title>Coding Exercise 3</title>
+  </head>
+  <body>
+    <h1>a visualization of biking routines</h1>
+    <div id="viz-container">
+      <svg id="d3focus">
+
+      </svg>
+      <div id="legend">
+        <h3>legend</h1>
+        <p>length of the line: <br>distance</p>
+        <p>solid/dotted: <br>riding with two hands/one hand</p>
+        <p>length of the spike: <br>how many turns i made during the route</p>
+        <p>thickness of the circle at the top/bottom: <br>how complex are the bikes being arranged at the starting/ending location</p>
+      </div>
+    </div>
+    <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>

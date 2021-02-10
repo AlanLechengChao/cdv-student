@@ -1,0 +1,47 @@
+[
+    {
+        "timestamp": "2021-02-09T19:44:47.823Z",
+        "speed": 3,
+        "distance": 5,
+        "startingComplexity": 2,
+        "endingComplexity": 4,
+        "hand": "right",
+        "turns": 10
+    },
+    {
+        "timestamp": "2021-02-09T19:45:08.088Z",
+        "speed": 4,
+        "distance": 2,
+        "startingComplexity": 1,
+        "endingComplexity": 2,
+        "hand": "both",
+        "turns": 4
+    },
+    {
+        "timestamp": "2021-02-09T20:17:31.799Z",
+        "speed": 5,
+        "distance": 3.5,
+        "startingComplexity": 3,
+        "endingComplexity": 5,
+        "hand": "both",
+        "turns": 24
+    },
+    {
+        "timestamp": "2021-02-09T22:22:23.424Z",
+        "speed": 1,
+        "distance": 10,
+        "startingComplexity": 2,
+        "endingComplexity": 5,
+        "hand": "right",
+        "turns": 50
+    },
+    {
+        "timestamp": "2021-02-09T22:22:43.800Z",
+        "speed": 2,
+        "distance": 2,
+        "startingComplexity": 2,
+        "endingComplexity": 3,
+        "hand": "both",
+        "turns": 5
+    }
+]
