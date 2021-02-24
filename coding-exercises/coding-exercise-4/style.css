@@ -1,0 +1,10 @@
+body{
+  margin: 0;
+}
+svg#d3focus{
+  position: absolute;
+  left: calc(50% - 350px);
+  top: calc(50% - 250px);
+  background-color: lightgray;
+
+}
