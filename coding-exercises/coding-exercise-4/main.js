@@ -51,8 +51,35 @@ d3.json("data.json").then(rawData => {
         console.log(outputStr);
         return outputStr;
       }
-
     });
+    groups.append("polyline")
+      .attr("class","righthand")
+      .attr("stroke", "black")
+      .attr("fill", "none")
+      .attr("stroke-width", d => 1.7 ** d.speed)
+      .attr("stroke-dasharray", d => d.hand == "right" ? 10 : "none")
+      .attr("points", d =>{
+        let lineLength = d.distance * 20 + 50;
+        let turns = d.turns;
+        if (turns == 0){
+          return `30,18 0,${lineLength}`
+        }
+        else{
+          let gap = lineLength / (turns + 1);
+          let outputStr = "30,18 ";
+          for (let i = 0; i < turns; i++) {
+            let wide = gap * tanG;
+            if (i % 2 == 0) {
+              outputStr += `${-wide+30},${18+gap*(i+1)} `;
+            }else{
+              outputStr += `${wide+30},${18+gap*(i+1)} `;
+            }
+          }
+          outputStr += `30,${lineLength}`;
+          console.log(outputStr);
+          return outputStr;
+        }
+      });
     groups.append("circle")
       .attr("class", "starting")
       .attr("r", 18)
