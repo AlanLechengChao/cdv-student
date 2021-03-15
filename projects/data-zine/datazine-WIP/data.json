@@ -142,5 +142,32 @@
         "endingComplexity": 3,
         "hand": "both",
         "turns": 4
+    },
+    {
+        "timestamp": "2021-03-05T05:16:19.734Z",
+        "speed": 3,
+        "distance": 6.8,
+        "startingComplexity": 4,
+        "endingComplexity": 3,
+        "hand": "left",
+        "turns": 3
+    },
+    {
+        "timestamp": "2021-03-06T06:21:55.999Z",
+        "speed": 2,
+        "distance": 3.8,
+        "startingComplexity": 1,
+        "endingComplexity": 2,
+        "hand": "left",
+        "turns": 3
+    },
+    {
+        "timestamp": "2021-03-06T07:24:18.000Z",
+        "speed": 4,
+        "distance": 3.3,
+        "startingComplexity": 3,
+        "endingComplexity": 2,
+        "hand": "left",
+        "turns": 6
     }
 ]
