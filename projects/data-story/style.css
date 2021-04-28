@@ -1,0 +1,21 @@
+body {
+  font-family: 'Inconsolata', monospace;
+}
+
+#left-content {
+  position: absolute;
+  top: 0;
+  max-width: 30%;
+  width: 500px;
+  border: 1px solid;
+  padding: 20px;
+  overflow: scroll;
+  height: 80%;
+  line-height: 2;
+}
+
+svg {
+  float: right;
+  /* position: absolute; */
+  top: 0;
+}
