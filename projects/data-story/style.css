@@ -1,5 +1,11 @@
-body {
+body > *{
   font-family: 'Inconsolata', monospace;
+  opacity: 0.3;
+  transition: all 0.3s;
+}
+
+body *:hover {
+  opacity: 1;
 }
 
 #left-content {
@@ -11,6 +17,8 @@ body {
   padding: 20px;
   overflow: scroll;
   height: 80%;
+  background-color: white;
+  z-index: 2;
   line-height: 2;
 }
 
