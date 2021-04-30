@@ -1,11 +1,12 @@
 body > *{
   font-family: 'Inconsolata', monospace;
-  opacity: 0.3;
-  transition: all 0.3s;
+  /* opacity: 0.3; */
+  /* transition: all 0.3s; */
 }
 
 body *:hover {
-  opacity: 1;
+  /* opacity: 1; */
+  /* z-index: 99; */
 }
 
 #left-content {
