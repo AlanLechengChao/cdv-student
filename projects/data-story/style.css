@@ -28,6 +28,7 @@ svg {
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
 }
 
 img {
@@ -37,15 +38,19 @@ img {
   top: 0;
   /* height: 100%; */
   z-index: -1;
-  width: 50%;
+  width: 45%;
   opacity: 0.8;
 }
 
+svg > text {
+  z-index: 99;
+}
 
 #infobox {
   position: absolute;
   overflow: scroll;
-  height: 50%;
+  bottom: 0;
+  /* height: 50%; */
   background-color: white;
   z-index: 2;
   line-height: 2;

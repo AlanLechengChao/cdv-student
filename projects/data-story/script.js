@@ -9,7 +9,7 @@ let viz = d3.select("#viz-container")
               .append("svg")
               .attr("width", w)
               .attr("height", h)
-              .style("background-color", "white");
+              .style("background-color", "#ffffff");
 let interval;
 
 
@@ -58,7 +58,7 @@ d3.json("31.json").then(function(geoData) {
           console.log("s")
           return "red"
         }else {
-          return "gray"
+          return "#aaaaaa"
         }
       }).attr('r', function (d) {
         if (d.number == selected.number) {
@@ -101,30 +101,30 @@ d3.json("31.json").then(function(geoData) {
         .attr("cx", d => projection(d.coordinates)[0])
         .attr("cy", d => projection(d.coordinates)[1])
         .attr("fill", d => {
-          // if (d.currentName == "住宅" || d.previousName == "住宅") {
-          //   return "green"
-          // } else {
-          //   return "blue"
-          // }
-          if (d.website) {
-            return "red"
+          if (d.currentName == "住宅" || d.previousName == "住宅") {
+            return "green"
           } else {
-            return "grey"
+            return "blue"
           }
+          // if (d.website) {
+          //   return "red"
+          // } else {
+          //   return "grey"
+          // }
         })
         .attr("r", 0.5)
         .attr("opacity", 0.7);
     viz.call(d3.zoom()
         .extent([[0, 0], [w, h]])
-        .scaleExtent([1, 10])
+        .scaleExtent([1, 15])
         .on("zoom", zoomed));
 
     function zoomed() {
       let e = d3.event.transform;
       console.log(e);
-      geos.attr("transform", `translate(${e.x}, ${e.y}) scale(${e.k})`).attr("stroke-width", 1/e.k);
-      points.attr("transform", `translate(${e.x}, ${e.y}) scale(${e.k})`);
-      texts.attr("transform", `translate(${e.x}, ${e.y}) scale(${e.k})`).attr("font-size", 10/e.k);
+      geos.attr("transform", e).attr("stroke-width", 1/e.k);
+      points.attr("transform", e);
+      texts.attr("transform", e).attr("font-size", 10/e.k);
     }
   })
 
