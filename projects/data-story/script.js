@@ -1,20 +1,35 @@
-// let w = 1200;
-// let h = w * 0.6;
-// let padding = 20;
-let w = 1200;
-let h = 800;
-let padding = 60;
-let index = 2;
+let w = window.innerWidth;
+let h = window.innerHeight;
+let padding = 10;
+// let index = 2;
+const START = 0;
+const BASEPOINT = 1;
+const VIEWING = 2;
+const DISPLAYING = 3;
+let state = START;
 let viz = d3.select("#viz-container")
               .append("svg")
               .attr("width", w)
               .attr("height", h)
               .style("background-color", "#ffffff");
+let content = d3.select("#content-container");
+let contentS = "This is the map of Shanghai, a city with complicated history. During different periods, buildings begin to emerge around the city.";
+let legends = viz.append("text")
+                  .text("Map of Shanghai")
+                  .attr('x', w-200)
+                  .attr('y', 50)
+                  .attr('font-family', 'Inconsolata')
+                  .attr('font-weight', 600);
 let interval;
+
 
 
 d3.json("31.json").then(function(geoData) {
   d3.json('data-process/output.json').then(function(data) {
+    let zoom = d3.zoom()
+        .extent([[0, 0], [w, h]])
+        .scaleExtent([1, 15])
+        .on("zoom", zoomed);
     function appendWebsite(s) {
       let box = document.createElement("div");
       box.id = "infobox";
@@ -49,7 +64,6 @@ d3.json("31.json").then(function(geoData) {
     })
 
     function selectPoint() {
-
       let withInfo = data.filter(d => d.website);
       let selected = withInfo[parseInt(Math.random() * withInfo.length)];
       console.log(selected);
@@ -58,14 +72,14 @@ d3.json("31.json").then(function(geoData) {
           console.log("s")
           return "red"
         }else {
-          return "#aaaaaa"
+          return "grey"
         }
       }).attr('r', function (d) {
         if (d.number == selected.number) {
           console.log("s")
           return 4
         }else {
-          return 0.5
+          return 0.3
         }
       }).attr("z-index", 99);
       if (document.getElementById("infobox")) {
@@ -85,47 +99,67 @@ d3.json("31.json").then(function(geoData) {
     let pathMaker = d3.geoPath(projection);
     let datapoints = viz.selectAll(".line").data(geoData.features, d => d.properties.name);
     let geos = datapoints.enter().append("path")
-        .attr("class", "line")
-        .attr("d", pathMaker)
-        .attr("stroke", "black")
-        .attr("fill", "none");
+                  .attr("class", "line")
+                  .attr("d", pathMaker)
+                  .attr("stroke", "darkgray")
+                  .attr("fill", "none");
     let coord = viz.selectAll(".point").data(data, d => d.number);
     let names = viz.selectAll('.names').data(geoData.features, d => d.properties.name);
+    let points = coord.enter().append('circle')
+                  .attr('class', "point")
+                  .attr('opacity', 0)
+                  .attr('r', 0)
+                  .attr("cx", d => projection(d.coordinates)[0])
+                  .attr("cy", d => projection(d.coordinates)[1])
+
+                  .attr("fill", d => {
+                    // if (d.currentName == "住宅" || d.previousName == "住宅") {
+                    //   return "green"
+                    // } else {
+                    //   return "blue"
+                    // }
+                      return "grey"
+                  });
     let texts = names.enter().append('text').text(d => d.properties.name)
+                  .attr("font-size", 12)
                   .attr("x", d => {
                     return projection(d.properties.cp)[0];
                   })
                   .attr("y", d => projection(d.properties.cp)[1]);
-    let points = coord.enter().append('circle')
-        .attr('class', "point")
-        .attr("cx", d => projection(d.coordinates)[0])
-        .attr("cy", d => projection(d.coordinates)[1])
-        .attr("fill", d => {
-          if (d.currentName == "住宅" || d.previousName == "住宅") {
-            return "green"
-          } else {
-            return "blue"
-          }
-          // if (d.website) {
-          //   return "red"
-          // } else {
-          //   return "grey"
-          // }
-        })
-        .attr("r", 0.5)
-        .attr("opacity", 0.7);
-    viz.call(d3.zoom()
-        .extent([[0, 0], [w, h]])
-        .scaleExtent([1, 15])
-        .on("zoom", zoomed));
+
+    viz.call(zoom);
 
     function zoomed() {
       let e = d3.event.transform;
       console.log(e);
+      switch (state) {
+        case START:
+          let l = Math.floor(contentS.length * ((e.k-1) / 14));
+          console.log(l);
+          content.text(contentS.slice(0,l));
+          if (e.k == 15) {
+            state = BASEPOINT;
+          }
+          break;
+        case BASEPOINT:
+          zoom.on("zoom", null);
+          points.transition()
+                        .duration(300)
+                        .delay((d,i) => i*1)
+                        .attr("r", 0.3)
+                        .attr("opacity", 0.7);
+            zoom.on("zoom", zoomed);
+            state = START;
+            break;
+          // case VIEWING:
+          //
+          //   break;
+      }
       geos.attr("transform", e).attr("stroke-width", 1/e.k);
       points.attr("transform", e);
-      texts.attr("transform", e).attr("font-size", 10/e.k);
+      texts.attr("transform", e).attr("font-size", 12/e.k);
     }
   })
+
 
 })

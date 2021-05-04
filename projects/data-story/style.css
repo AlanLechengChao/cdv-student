@@ -17,10 +17,13 @@ body *:hover {
   border: 1px solid;
   padding: 20px;
   overflow: scroll;
-  height: 80%;
-  background-color: white;
+  height: 40%;
+  /* background-color: white; */
   z-index: 2;
   line-height: 2;
+  background-color: hsla(0, 0%, 100%, .75);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 }
 
 svg {
@@ -64,4 +67,16 @@ svg > text {
 
 #infobox > p, h3 {
   width: 50%;
+}
+
+
+#content-container {
+  display: inline;
+  border-right: 6px solid rgba(255, 40, 30, .80);
+  animation: blinkTextCursor 600ms steps(44) infinite normal;
+}
+
+@keyframes blinkTextCursor {
+  from {border-right-color: rgba(255, 40, 30, .80);}
+  to {border-right-color: transparent;}
 }
