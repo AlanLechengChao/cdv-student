@@ -7,7 +7,7 @@ Hi! I am [Alan Lecheng Chao](https://wp.nyu.edu/alanlechengchao) and in this rep
 Among other things, I will link to Coding Exercises and Projects:
 
 - [coding exercises](coding-exercises)
-- [cool project (placeholder)](projects/placeholder)
+- [data story](projects/data-story)
 - ...
 
 
