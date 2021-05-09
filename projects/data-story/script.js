@@ -73,6 +73,7 @@ d3.json("31.json").then(function(geoData) {
         if (key == "image") {
           let img = document.createElement("img");
           img.src = value;
+          img.className = "photo";
           box.appendChild(img);
         }
         else {
