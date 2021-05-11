@@ -35,4 +35,6 @@ Each Datapoint is measured by a serial number that looks like this. And by the e
 ```
 
 ## Process
-Essentially, a geographic illustration of datasets like this provides intuitive feedback for people. 
+Essentially, a geographic illustration of datasets like this provides intuitive feedback for people. The style imitates people's usual imagination of data, using monospace fonts and simplified color pallete, that I intentially want to reveal the rawness of data collect, and thinks about our relationship with the raw data entries.
+
+For the program structure, the iteractions are initiated by constantly zooming the map. Here, I utilized a [finite state machine](https://brilliant.org/wiki/finite-state-machines/) mechanism. Whenever the user reached the bottom of the zooming periods and zoomed out, the next state will be rendered. However, 
